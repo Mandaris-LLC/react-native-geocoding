@@ -23,6 +23,31 @@ export default Geocoder = {
 	get isInit() {
 		return !!this.apiKey;
 	},
+	
+	/**		
+ 	 * <a href="https://developers.google.com/maps/documentation/geocoding/intro#geocoding">Geocodes</a>, converting address into a geographic coordinates.		
+ 	 * Use {@link Geocoder.from} instead.		
+ 	 * @param {String} address Address to reverse geocode.		
+ 	 * @returns {Promise.<Object>} Object containing informations about the place and the coordinates.		
+ 	 * @see https://developers.google.com/maps/documentation/geocoding/intro#Viewports		
+ 	 * @deprecated		
+ 	 */		
+ 	getFromLocation(address) {		
+ 		return this.from(address);		
+ 	},		
+
+  	/**		
+ 	 * Do <a href="https://developers.google.com/maps/documentation/geocoding/intro#ReverseGeocoding">reverse geocoding</a>, converting geographic coordinates into a human-readable address.		
+ 	 * Use {@link Geocoder.from} instead.		
+ 	 * @param {Number} lat Latitude coordinate.		
+ 	 * @param {Number} lng Longitude coordinate.		
+ 	 * @returns {Promise.<Object>} Object containing informations about the place at the coordinates.		
+ 	 * @see https://developers.google.com/maps/documentation/geocoding/intro#GeocodingResponses		
+ 	 * @deprecated		
+ 	 */		
+ 	getFromLatLng(lat, lng){		
+ 		return this.from(lat, lng);		
+ 	},
 
 	/**
 	 * Do <a href="https://developers.google.com/maps/documentation/geocoding/intro#ReverseGeocoding">(reverse) geocoding</a>, converting geographic coordinates into a human-readable address & vice-versa.
